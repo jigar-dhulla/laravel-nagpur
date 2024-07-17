@@ -20,7 +20,7 @@ class TaskFactory extends Factory
         return [
             'title' => fake()->words(3, true),
             'status' => TaskStatus::PENDING,
-//            'order' => (static::newModel()->max('order') ?? 0) + 1,
+            'order' => (static::newModel()->max('order') ?? 0) + 1,
         ];
     }
 }
