@@ -19,6 +19,10 @@ class KanbanBoard extends BaseKanbanBoard
     {
         return [
             Action::make('Purge Completed Tasks')
+                ->requiresConfirmation()
+                ->visible(function () {
+                    return auth()->user()?->can('purge-tasks');
+                })
                 ->action(function () {
                     Task::query()->where('status', TaskStatus::COMPLETED)->delete();
                     TasksPurged::dispatch();
