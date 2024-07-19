@@ -50,4 +50,11 @@ class KanbanBoard extends BaseKanbanBoard
     {
     }
 
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            \App\Filament\Widgets\ActiveUsers::class,
+        ];
+    }
+
 }
